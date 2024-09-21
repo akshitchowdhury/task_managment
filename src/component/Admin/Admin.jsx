@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { PlusIcon, LogOutIcon, User } from 'lucide-react';
 import UserTrack from './UserTrack';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Admin({ isAuth, setIsAuth }) {
   const [workers, setWorkers] = useState([]);
@@ -143,7 +143,9 @@ export default function Admin({ isAuth, setIsAuth }) {
         <th className="py-3 px-4 text-left text-indigo-800 font-semibold">Task Name</th>
         <th className="py-3 px-4 text-left text-indigo-800 font-semibold">Description</th>
         <th className="py-3 px-4 text-left text-indigo-800 font-semibold">Assigned User</th>
+        <th className="py-3 px-4 text-center text-indigo-800 font-semibold">Status</th>
         <th className="py-3 px-4 text-center text-indigo-800 font-semibold">Actions</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -158,6 +160,7 @@ export default function Admin({ isAuth, setIsAuth }) {
           <td className="py-3 px-4 text-gray-800">{task.name}</td>
           <td className="py-3 px-4 text-gray-600">{task.description}</td>
           <td className="py-3 px-4 text-indigo-600">{task.taskUser}</td>
+          <td className="py-3 px-4 text-indigo-600">Task Status</td>
           <td className="py-3 px-4 text-center">
             <button
               className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition"
@@ -173,6 +176,10 @@ export default function Admin({ isAuth, setIsAuth }) {
 </div>
 
         </motion.div>
+
+<button>
+    <Link to="/admin/usertrack">User Track</Link>
+</button>
 
 {/* <UserTrack/> */}
       {/* Log Out Button */}
